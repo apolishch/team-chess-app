@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+#rspec and factory girl for testing
+group :development, :test do
+ gem 'rspec-rails', '~> 3.0'
+ gem "factory_girl_rails", "~> 4.0"
+end
 #devise for users authentication
 gem 'devise', '>= 3.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -15,6 +20,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
+gem 'rubocop', '~> 0.42.0', require: false
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

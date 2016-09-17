@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-#rspec and factory girl for testing
-group :development, :test do
- gem 'rspec-rails', '~> 3.0'
- gem "factory_girl_rails", "~> 4.0"
-end
 #devise for users authentication
 gem 'devise', '>= 3.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -20,8 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
-gem 'rubocop', '~> 0.42.0', require: false
-
+gem 'rails_12factor'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,6 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rubocop', '~> 0.42.0', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', '~> 4.5'
   gem 'byebug'
 end
 
@@ -53,8 +51,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-group :production do
-  gem 'rails_12factor'  
-end
-

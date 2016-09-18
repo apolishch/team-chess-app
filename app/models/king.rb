@@ -7,8 +7,9 @@ class King < Piece
     x_diff = x_position - x
     y_diff = y_position - y
     
-   ((x_diff == 0 || y_diff == 0) || ((x_diff).abs == (y_diff).abs)) && ((x_diff).abs <=1 && (y_diff).abs <= 1 ) && self.moved?(x,y) && self.inside_limits?(x,y)
+   (self.horizontal?(x,y) || self.vertical?(x,y) || self.diagonal?(x,y)) && ((x_diff).abs <=1 && (y_diff).abs <= 1 ) && self.moved?(x,y) && self.inside_limits?(x,y)
   
   end
 
 end
+

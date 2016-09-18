@@ -13,18 +13,25 @@ class Piece < ActiveRecord::Base
     def moved?(x,y)
       x != x_position || y!= y_position
     end
+    
+    # method to check if the movement is diagonal
 
     def diagonal?(x,y)
       (x_position-x).abs == (y_position - y).abs
     end
 
+    # method to check if the movement is horizontal
+
     def horizontal?(x,y)
-      y_position - y == 0
+      y_position - y == 0 && (x_position-x).abs > 0
     end
+    
+    # method to check if the movement is vertical
 
     def vertical?(x,y)
-      x_position - x == 0
+      x_position - x == 0 && (y_position-y).abs > 0
     end
     
 
 end
+

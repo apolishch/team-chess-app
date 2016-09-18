@@ -9,3 +9,4 @@ class Queen < Piece
   end
 
 end
+

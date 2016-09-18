@@ -2,8 +2,8 @@ class Bishop < Piece
 
   # defining bishop move as a piece that advances as many squares vertically than horizontally
   
-  def right_move?(x, y)
-    (x_position-x).abs == (y_position - y).abs
+  def valid_move?(x, y)
+    self.moved?(x,y) && self.inside_limits?(x,y) && self.diagonal?(x,y)
   end
 
 end

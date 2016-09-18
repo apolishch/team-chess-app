@@ -13,6 +13,18 @@ class Piece < ActiveRecord::Base
     def moved?(x,y)
       x != x_position || y!= y_position
     end
+
+    def diagonal?(x,y)
+      (x_position-x).abs == (y_position - y).abs
+    end
+
+    def horizontal?(x,y)
+      y_position - y == 0
+    end
+
+    def vertical?(x,y)
+      x_position - x == 0
+    end
     
 
 end

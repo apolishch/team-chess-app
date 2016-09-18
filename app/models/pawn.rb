@@ -11,7 +11,7 @@ class Pawn < Piece
 
   # method to define how many squares can the pawn get moved depending on if it is in its starting square or not
   def first_move
-    if (color = 'black' && y_position = 1) || (color = 'white' && y_position = 6)
+    if (color = 'black' && y_position == 1) || (color = 'white' && y_position == 6)
       return 2
     else
       return 1

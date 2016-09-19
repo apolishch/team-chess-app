@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/factory_girl'
 
 # Specs in this file have access to a helper object that includes
 # the StaticPagesHelper. For example:

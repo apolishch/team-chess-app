@@ -1,1 +1,7 @@
 <h1> a simple form create new game </h1>
+
+<h1>Create your game</h1>
+<%= simple_form_for @game do |f| %>
+  <%= f.input :name %>
+  <%= f.submit 'Create', class: 'btn btn-danger' %>
+<% end %>

@@ -1,15 +1,19 @@
 class GamesController < ApplicationController
+    
+    def index
+    end    
+    
     def new 
        @game = Game.new
     end
     
     def create 
-       @game = Game.create(gram_params)
-       redirect_to root_path (@game)
+       @game = Game.create(game_params)
+       redirect_to game_path(@game)
     end     
     
     def show 
-        @game = Game.find(params[:id])
+       @game = Game.find(params[:id])
     end    
     
     private 

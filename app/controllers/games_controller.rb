@@ -8,12 +8,17 @@ class GamesController < ApplicationController
     end
     
     def create 
-       @game = Game.create(game_params)
-       redirect_to game_path(@game)
+      @game = Game.create(game_params)
+      if @game.valid?
+        redirect_to game_path(@game)
+      else 
+        render :new, status: :unprocessable_entity
+      end 
     end     
     
     def show 
        @game = Game.find(params[:id])
+       return render_not_found if @game.blank?
     end    
     
     private 

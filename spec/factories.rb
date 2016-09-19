@@ -12,20 +12,20 @@ FactoryGirl.define do
     association :user
   end
 
-  factory :game do
-    title "Hello"
-    association :player
-    turn 1
-  end
+  # factory :game do
+  #   title "Hello"
+  #   association :player
+  #   turn 1
+  # end
 
-  factory :piece do
-    association :game
-    type "Pawn"
-    color "white"
-    is_captured false
-    x_position 1
-    y_position 7
-  end
+  # factory :piece do
+  #   association :game
+  #   type "Pawn"
+  #   color "white"
+  #   is_captured false
+  #   x_position 1
+  #   y_position 7
+  # end
 end
 
 

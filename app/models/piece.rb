@@ -1,6 +1,6 @@
 class Piece < ActiveRecord::Base
     
-    has_many :games
+    belongs_to :game
 
     # method to check if the move is inside the board limits
     
@@ -12,6 +12,10 @@ class Piece < ActiveRecord::Base
     
     def moved?(x,y)
       x != x_position || y!= y_position
+    end
+
+    def valid_move?(x,y)
+      moved?(x,y) && inside_limits?(x,y)
     end
     
     # method to check if the movement is diagonal

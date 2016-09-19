@@ -1,13 +1,13 @@
 class Pawn < Piece
 
   # it can only move vertically one square
+
   def valid_move?(x,y)
-    self.moved?(x,y) && (x_position - x == 0) && advancing?(y) && (y-y_position).abs == "#{first_move}".to_i
+   (x_position - x == 0) && advancing?(y) && (y-y_position).abs == "#{first_move}".to_i && super
   end
   # method to define if the pawn movement is of advance
+
   def advancing?(y)
-    #(color == 'black' && y_position < y) || (color == 'white' && y_position > y)
-    
     if color == 'black' 
       if y_position < y 
         return true
@@ -16,6 +16,7 @@ class Pawn < Piece
       return true
     end
       else return false
+        
   end
 
   # method to define how many squares can the pawn get moved depending on if it is in its starting square or not

@@ -5,7 +5,6 @@ RSpec.describe "Models", type: :model do
     describe "The #{factory_name} factory" do
       it 'is valid' do
         build(factory_name).should be_valid
-        
       end
     end
   end

@@ -1,5 +1,7 @@
 class Player < ActiveRecord::Base
-    
-    has_many :games
     belongs_to :user
+    has_many :games
+
+    validates :name, presence: true
 end
+

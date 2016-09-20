@@ -38,4 +38,3 @@ class Pawn < Piece
   end
   # to be defined diagonal move when capturing other piece
  end
- 

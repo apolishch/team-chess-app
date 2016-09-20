@@ -1,6 +1,6 @@
 class Piece < ActiveRecord::Base
-    
-    belongs_to :game
+  
+  belongs_to :game
 
     # method to check if the move is inside the board limits
     
@@ -36,6 +36,4 @@ class Piece < ActiveRecord::Base
       x_position - x == 0 && (y_position-y).abs > 0
     end
     
-
 end
-

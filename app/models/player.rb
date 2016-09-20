@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
     
-    has_one :user
     has_many :games
+    belongs_to :user
 end

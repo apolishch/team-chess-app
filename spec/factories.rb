@@ -12,11 +12,11 @@ FactoryGirl.define do
     association :user
   end
 
-  # factory :game do
-  #   title "Hello"
-  #   association :player
-  #   turn 1
-  # end
+  factory :game do
+    game_title "Hello"
+    association :player
+    turn 1
+  end
 
   # factory :piece do
   #   association :game

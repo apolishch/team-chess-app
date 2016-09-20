@@ -18,14 +18,14 @@ FactoryGirl.define do
     turn 1
   end
 
-  # factory :piece do
-  #   association :game
-  #   type "Pawn"
-  #   color "white"
-  #   is_captured false
-  #   x_position 1
-  #   y_position 7
-  # end
+  factory :piece do
+    association :game
+    type "Pawn"
+    color "white"
+    is_captured false
+    x_position 1
+    y_position 7
+  end
 end
 
 

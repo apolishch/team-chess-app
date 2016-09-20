@@ -35,5 +35,3 @@ RSpec.describe Queen, type: :model do
     end
             
 end
-
-

@@ -39,4 +39,5 @@ RSpec.describe King, type: :model do
 
     end
   end
+  
      

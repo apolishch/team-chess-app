@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'rails_12factor'
+gem "awesome_print", require:"ap"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

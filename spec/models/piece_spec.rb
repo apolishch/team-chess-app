@@ -1,17 +1,17 @@
-require 'rails_helper'
+    require 'rails_helper'
 
-RSpec.describe Piece, type: :model do
-  describe 'common restrictions to all pieces' do
-    it 'should move inside of the limits of the board' do
-      dummy_king = Piece.create(type: 'King', color: 'black', image: '', x_position: 4, y_position: 0, is_captured: false, game_id: 0)
-      expect(dummy_king.inside_limits?(4, 4)).to eql(true)
-      expect(dummy_king.inside_limits?(8, 4)).to eql(false)
+    
+
+    RSpec.describe Piece, type: :model do
+      before(:each) do
+        @dummy_rook = Piece.create(type: 'Rook', color: 'white', image: '', x_position: 0, y_position: 4, is_captured: false, game_id: 0)
+        @dummy_pawn_white = Piece.create(type: 'Pawn', color: 'white', image: '', x_position: 0, y_position: 2, is_captured: false, game_id: 0)
     end
 
-    it 'should make a move to a square different than the current one' do
-      dummy_king = Piece.create(type: 'King', color: 'black', image: '', x_position: 4, y_position: 0, is_captured: false, game_id: 0)
-      expect(dummy_king.moved?(4, 0)).to eql(false)
-      expect(dummy_king.moved?(4, 1)).to eql(true)
+      describe "obstructions" do
+        it "should return true if the vertical move is blocked" do
+          expect(@dummy_rook.vertical_obstructed?(0,1)).to eql(true)
+        end
+      end
+      
     end
-  end
-end

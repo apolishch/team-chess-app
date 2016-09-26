@@ -34,4 +34,17 @@ class Piece < ActiveRecord::Base
   def vertical?(x, y)
     (x_position - x).zero? && (y_position - y).abs > 0
   end
+  # method to check is the piece move is vertically obstructed
+  
+  def vertical_obstructed?(x,y)
+    
+    (y_position...y).each do |y|
+      self.game.pieces.each do |piece|
+        if piece.x_position == x && piece.y_position == y 
+          return true
+        end
+      end
+    end
+
+  end
 end

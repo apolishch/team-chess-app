@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'rails_12factor'
-gem 'simplecov', :require => false, :group => :test
+
 gem "awesome_print", require:"ap"
 
 # Use jquery as the JavaScript library
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'byebug'
+  gem 'simplecov', :require => false
 end
 
 group :development do

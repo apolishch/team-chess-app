@@ -6,17 +6,19 @@
 	color: blue;
 }
 
-table.chessboard {
-    margin: 80px auto;
-    background: #999;
-    border: 25px solid #333;
-    border-collapse: collapse; /* */
+.chessboard {
+    margin-left: 300px;
 }
-td.chessboard {
+
+.chessboard-col {
     width: 50px; height: 50px;
     border: 2px solid #333; /* */
 }
-tr.chessboard:nth-child(odd) td.chessboard:nth-child(even),
-tr.chessboard:nth-child(even) td.chessboard:nth-child(odd) {
-    background: white;
+
+tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
+background: white
+}
+
+tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even) {
+background: black
 }

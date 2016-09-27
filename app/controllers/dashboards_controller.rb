@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
 
     def show
-      @games = Game.all  #only thing working
+      @games = Game.all
       @current_player_games = current_player_games
       @opponent_games = opponent_games
       @open_games = open_games
@@ -15,6 +15,4 @@ class DashboardsController < ApplicationController
       # is partcipating but as a black player
       @opponent_games = Game.where("(white_player_id = #{current_user.id} OR black_player_id = #{current_user.id}) AND player_id != #{current_user.id}")
     end
-
-
 end

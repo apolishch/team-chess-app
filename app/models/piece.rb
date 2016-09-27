@@ -38,13 +38,13 @@ class Piece < ActiveRecord::Base
   
   def vertical_obstructed?(x,y)
     
-    (y_position...y).each do |y|
-      self.game.pieces.each do |piece|
-        if piece.x_position == x && piece.y_position == y 
+    ( [y_position, y].min...[y_position, y].max ).each do |y|
+        self.game.pieces.each do |piece|
+        if (piece.x_position == x && piece.y_position == y) && piece.id != self.id
           return true
         end
       end
     end
-
+    return false
   end
 end

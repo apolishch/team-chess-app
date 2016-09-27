@@ -24,7 +24,7 @@ require 'rails_helper'
           expect(@dummy_rook_bottom.vertical_obstructed?(7,5)).to eql(false)
         end
 
-        it "should return true if the vertical move is blocked moving from top to bottom of the board" do
+        it "should return true if the vertical move is blocked moving from bottom to top of the board" do
           expect(@dummy_rook_bottom.vertical_obstructed?(7,3)).to eql(true)
         end
         

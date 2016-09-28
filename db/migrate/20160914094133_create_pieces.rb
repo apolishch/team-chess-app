@@ -1,7 +1,6 @@
 class CreatePieces < ActiveRecord::Migration
   def change
     create_table :pieces do |t|
-
       t.string :type
       t.string :color
       t.string :image
@@ -9,7 +8,6 @@ class CreatePieces < ActiveRecord::Migration
       t.integer :y_position
       t.boolean :is_captured
       t.integer :game_id
-
 
       t.timestamps null: false
     end

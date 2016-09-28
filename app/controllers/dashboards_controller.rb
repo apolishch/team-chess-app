@@ -4,7 +4,6 @@ class DashboardsController < ApplicationController
       @games = Game.all
       @current_player_games = current_player_games
       @opponent_games = opponent_games
-      @open_games = open_games
     end
 
     def current_player_games

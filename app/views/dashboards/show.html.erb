@@ -12,10 +12,17 @@
 
 <h1> Opponents Turn </h1>
 
+<<<<<<< HEAD
 <% @opponent_games.each do |op_games| %>
   <div>
   <h1><%op_games.game_title %></h1>
   <%= link_to "Play this game", game_path(game) %>
+=======
+<% @open_games.each do |open_game| %>
+  <div>
+  <h1><%open_game.game_title %></h1>
+  <%= link_to "Play this game", game_path(open_game) %>
+>>>>>>> 599c0fcdd6665682d10d9c5e20f28da66418a695
   </div>
 <% end %>
 

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+<<<<<<< HEAD
 #Use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.3.5.1'
 #sprockets
@@ -7,6 +8,9 @@ gem 'sprockets', '2.11.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 #devise for users authentication
+=======
+# devise for users authentication
+>>>>>>> origin/master
 gem 'devise', '>= 3.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -20,6 +24,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'rails_12factor'
+gem "awesome_print", require:"ap"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -55,4 +60,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

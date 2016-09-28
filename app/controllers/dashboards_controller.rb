@@ -14,4 +14,5 @@ class DashboardsController < ApplicationController
       # is partcipating but as a black player
       @opponent_games = Game.where("(white_player_id = #{current_user.id} OR black_player_id = #{current_user.id}) AND player_id != #{current_user.id}")
     end
+
 end

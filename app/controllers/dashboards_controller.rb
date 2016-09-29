@@ -15,9 +15,4 @@ class DashboardsController < ApplicationController
 
     #open games TBD
     #games player white player id or black player id is nil which would be a an open game
-
-
-    def find_current_player
-      return Player.find(current_user.id)
-    end
 end

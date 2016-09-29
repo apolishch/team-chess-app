@@ -4,11 +4,12 @@ class GamesController < ApplicationController
     end
 
     def new
-       @game = Game.new
+      current_player = find_current_player
+      @game = Game.new
     end
 
     def create
-      current_player = Player.find(current_user.id)
+      current_player = find_current_player
       @game = current_player.games.create(game_params)
       if @game.valid?
         redirect_to game_path(@game)

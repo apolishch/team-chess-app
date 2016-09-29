@@ -1,6 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
+
+  describe "game#show action" do
+    it 'responds successfully with an HTTP 200 status code' do
+      get :show
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe "game#create action" do
+
+    it "should successfully create a new player in our database" do
+      game = FactoryGirl.create(:game)
+      expect(game.game_title).to eq(Game.last.game_title)
+    end
+
+  end
+
  #  describe "game#create action" do
 
  #    it "should successfully create a new game in our database" do

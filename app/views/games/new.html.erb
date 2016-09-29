@@ -3,6 +3,6 @@
 <h1>Create your game</h1>
 <%= simple_form_for @game do |f| %>
   <%= f.input :game_title %>
-  <%= f.input :white_player_id, :value => current_player.id, :as => :hidden %>
+  <%= f.input :white_player_id, :value => current_user.id, :as => :hidden %>
   <%= f.submit 'Create', class: 'btn btn-danger' %>
 <% end %>

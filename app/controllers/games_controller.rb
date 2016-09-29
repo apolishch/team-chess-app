@@ -8,7 +8,8 @@ class GamesController < ApplicationController
     end
 
     def create
-      @game = current_user.games.create(game_params)
+      current_player = Player.find(current_user.id)
+      @game = current_player.games.create(game_params)
       if @game.valid?
         redirect_to game_path(@game)
       else

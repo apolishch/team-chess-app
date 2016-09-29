@@ -5,7 +5,7 @@
 
 <% @current_player_games.each do |game| %>
   <div>
-    <h1><%game.game_title%></h1>
+    <h1><%=game.game_title%></h1>
     <%= link_to "Play this game", game_path(game) %>
   </div>
 <% end %>
@@ -14,7 +14,7 @@
 
 <% @opponent_games.each do |op_games| %>
   <div>
-    <h1><%op_games.game_title %></h1>
+    <h1><%=op_games.game_title %></h1>
     <%= link_to "Play this game", game_path(game) %>
   </div>
 <% end %>

@@ -7,12 +7,17 @@ class DashboardsController < ApplicationController
     end
 
     def current_player_games
-      @current_player_games = current_user.games.limit(10)
+      current_player = find_current_player
+      @current_player_games = current_player.games.limit(10)
     end
 
     def opponent_games
       # is partcipating but as a black player
-      @opponent_games = Game.where("(white_player_id = #{current_user.id} OR black_player_id = #{current_user.id}) AND player_id != #{current_user.id}")
+      current_player = find_current_player
+      @opponent_games = Game.where("(white_player_id = #{current_player.id} OR black_player_id = #{current_player.id}) AND player_id != #{current_player.id}")
     end
 
+    def find_current_player
+      return Player.find(current_user.id)
+    end
 end

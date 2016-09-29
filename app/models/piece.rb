@@ -36,10 +36,11 @@ class Piece < ActiveRecord::Base
   end
   # method to check is the piece move is vertically obstructed
   
-  def vertical_obstructed?(x,y)
+  def vertical_obstructed?(x, y)
     
+
     ( [y_position, y].min...[y_position, y].max ).each do |y|
-        self.game.pieces.each do |piece|
+        self.game.pieces.where("x_position = ?", x).each do |piece|
         if (piece.x_position == x && piece.y_position == y) && piece.id != self.id
           return true
         end

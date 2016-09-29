@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
   belongs_to :player
   has_many :pieces
 
+
   # Game initialization
   after_create :initialize_board
   def initialize_board

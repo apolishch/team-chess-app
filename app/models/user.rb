@@ -3,5 +3,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :players
-  has_many :games, foreign_key: :player_id
 end

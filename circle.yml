@@ -19,6 +19,8 @@ machine:
     CIRCLE_ENV: test
     DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
 
+## Customize checkout
+
 ## Customize dependencies
 dependencies:
   override:
@@ -35,6 +37,7 @@ dependencies:
 
 ## Customize database setup
 database:
+  override:
     - bundle exec rake db:create db:schema:load
 
 ## Customize test commands

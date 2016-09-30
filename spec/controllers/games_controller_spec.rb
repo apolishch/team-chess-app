@@ -17,6 +17,13 @@ RSpec.describe GamesController, type: :controller do
     end
   end
 
+  describe 'game#index action' do
+    it 'should successfully list open games' do
+      get :index
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'game#show action' do
     it 'should successfully show a requested game' do
       game = FactoryGirl.create(:game)

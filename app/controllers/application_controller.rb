@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def find_current_player
-    return Player.find(current_user.id)
+    current_user.player
   end
 end

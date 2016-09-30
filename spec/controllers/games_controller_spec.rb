@@ -1,55 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
+  describe 'game#new action' do
+    it 'should prompt user to create a player' do
+      user = FactoryGirl.create(:user)
+      sign_in user
+      get :new
+      expect(response).to redirect_to new_player_path
+    end
 
-  describe "game#show action" do
-    it 'responds successfully with an HTTP 200 status code' do
-      get :show
+    it 'should allow users with a player name to go to the create new game screen' do
+      user = FactoryGirl.create(:player)
+      sign_in user.user
+      get :new
       expect(response).to be_success
+    end
+  end
+
+  describe 'game#show action' do
+    it 'should successfully show a requested game' do
+      game = FactoryGirl.create(:game)
+      get :show, id: game.id
       expect(response).to have_http_status(200)
     end
   end
 
-  describe "game#create action" do
-
-    it "should successfully create a new player in our database" do
+  describe 'game#create action' do
+    it 'should successfully create a new game and add to database' do
       game = FactoryGirl.create(:game)
-      expect(game.game_title).to eq(Game.last.game_title)
+      expect(game.id).to eq(Game.last.id)
     end
-
   end
-
- #  describe "game#create action" do
-
- #    it "should successfully create a new game in our database" do
- #      post :create, game: {
- #      name: "New_Game",
- #      }
-
- #      expect(response).to redirect_to game_path(assigns[:game])
-
- #      game = Game.last
- #      expect(game.name).to eq("New_Game")
- #    end
-
-
- #     it "should properly deal with validation errors" do
-
- #      post :create, game: {name: '' }
- #      expect(response).to have_http_status(:unprocessable_entity)
- #      expect(Game.count).to eq 0
- #    end
- # end
-
- # describe "game#show action" do
- #    it "should successfully show the page if the game is found" do
- #       game = FactoryGirl.create(:game)
- #       get :show, id: game.id
- #       expect(response).to have_http_status(:success)
- #    end
- #    it "should return a 404 error if the game is not found" do
- #       get :show, id: 'TACOCAT'
- #       expect(response).to have_http_status(:not_found)
- #    end
- #  end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Game, type: :model do
-
   describe 'initilize_game method' do
     it '' do
       game = Game.create(game_title: 'new_game')

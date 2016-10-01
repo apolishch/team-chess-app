@@ -6,7 +6,8 @@
         <tr class= "chessboard-col">
           <% 8.downto(1) do |col| %>
             <td data-x_position="<%= col %>"data-y_position="<%= row %>">
-             -pieces-
+              -pieces-
+             </td>
           <% end %><!--end column-->
         </tr>
       <% end %><!--end row-->

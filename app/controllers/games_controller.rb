@@ -34,6 +34,19 @@ class GamesController < ApplicationController
   #   end
   # end
 
+  def piece_at(x,y)
+    self.pieces.where(pieces.x_position && pieces.y_position !=nil)
+    # if not equal to nil use html unicode representation
+     if pieces.x_position && pieces.y_position !=nil
+       render @game.piece.image.htmlsafe
+    else
+      return ""
+  end
+
+  # piece_at = pieces.find { |piece| piece.x_position == i && piece.y_position == j }
+  end
+>>>>>>>  experimenting with adding pieces on chessboard
+
   private
 
   def game_params

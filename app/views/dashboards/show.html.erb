@@ -1,23 +1,15 @@
-
 <h1>My Dashboard</h1>
 
 <h1>My Games</h1>
 
-<% @current_player_games.each do |game| %>
-  <div>
-    <h1><%=game.game_title%></h1>
-    <%= link_to "Play this game", game_path(game) %>
-  </div>
-<% end %>
-
-
-<h1>Join a Game</h1>
-
 <% @games.each do |game| %>
+  <% if game.player == current_user.player || (game.white_player_id == current_user.player || game.black_player_id == current_user.player) %>
   <div>
-    <h1><%= game.game_title %></h1><br />
-    <%= link_to "Play this game", game_path(game) %>
+    <h3><%= game.game_title %>, <span><%= link_to "Play this game", game_path(game) %></span> </h3><br />
   </div>
+  <% end %>
 <% end %>
+
+
 
 

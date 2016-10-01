@@ -1,31 +1,33 @@
 class GamesController < ApplicationController
+  def index
+    @games = Game.all
+  end
 
-    def index
+  def new
+    if current_user.player
+      @game = Game.new
+    else
+      redirect_to new_player_path
     end
+  end
 
-    def new
-       @game = Game.new
+  def create
+    @game = find_current_player.games.create(game_params)
+    if @game.valid?
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
     end
+  end
 
-    def create
-      current_player = Player.find(current_user.id)
-      @game = current_player.games.create(game_params)
-      if @game.valid?
-        redirect_to game_path(@game)
-      else
-        render :new, status: :unprocessable_entity
-      end
-    end
+  def show
+    @game = Game.find(params[:id])
+    return render_not_found if @game.blank?
+  end
 
-    def show
-      @game = Game.find(params[:id])
-      return render_not_found if @game.blank?
-    end
+  private
 
-    private
-
-    def game_params
-      params.require(:game).permit(:game_title, :white_player_id)
-    end
-
+  def game_params
+    params.require(:game).permit(:game_title, :white_player_id)
+  end
 end

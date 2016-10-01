@@ -3,11 +3,11 @@
 
 <div class="chessboard">
   <table id="chessboard_table" >
-      <% 8.downto(1) do |row| %>
+      <% 7.downto(0) do |row| %>
         <tr class= "chessboard-col">
-          <% 8.downto(1) do |col| %>
+          <% 7.downto(0) do |col| %>
             <td data-x_position="<%= col %>"data-y_position="<%= row %>">
-              -pieces-
+              <%=@game.pieces.image.htmlsafe%>
              </td>
           <% end %><!--end column-->
         </tr>

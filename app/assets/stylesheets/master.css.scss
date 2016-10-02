@@ -22,3 +22,13 @@ background: white
 tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even) {
 background: black
 }
+
+.td {
+    padding: 20px;
+}
+
+#chess_piece {
+    font-size: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

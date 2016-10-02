@@ -1,10 +1,32 @@
 class Game < ActiveRecord::Base
 
+
     belongs_to :player
     has_many :pieces
 
  # Game initialization
   after_create :initialize_board
+
+  def return_piece(x,y)
+     piece_result = Piece.where(game_id: id, x_position: x, y_position: y)
+     if piece_result.empty?
+       puts "did not find result "
+       " ------"
+     else
+       puts "found results it is #{piece_result[0].image}"
+       piece_result[0].image
+     end
+  end
+    # self.pieces.find_by(pieces.x_position && pieces.y_position !=nil)
+  # #  if not equal to nil use html unicode representation
+  #   if pieces.x_position && pieces.y_position !=nil
+  #       return piece.image.htmlsafe
+  #   else
+  #     return " "
+  #   end
+
+
+
   def initialize_board
     # White Pieces
     (0..7).each do |i|

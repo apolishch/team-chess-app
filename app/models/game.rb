@@ -10,8 +10,7 @@ class Game < ActiveRecord::Base
   def return_piece(x,y)
      piece_result = Piece.where(game_id: id, x_position: x, y_position: y)
      if piece_result.empty?
-       puts "did not find result "
-       "---"
+       "&#32;".html_safe
      else
       # puts "found results it is #{piece_result[0].image}"
        piece_result[0].image.html_safe

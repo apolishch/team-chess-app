@@ -5,9 +5,7 @@
       <% 7.downto(0) do |row| %>
         <tr class= "chessboard-col">
           <% 7.downto(0) do |col| %>
-            <td data-x_position="<%= col %>"data-y_position="<%= row %>">
-              <%=@game.pieces.image.htmlsafe%>
-             </td>
+              <td><%=@game.return_piece(row,col)%></td>
           <% end %><!--end column-->
         </tr>
       <% end %><!--end row-->

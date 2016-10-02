@@ -1,12 +1,21 @@
 source 'https://rubygems.org'
 
-# Use bootstrap for styling
+
+#
+
+group :test, :development do
+  gem 'database_cleaner'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+end
+
+#Use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.3.5.1'
-# sprockets
+#sprockets
 gem 'sprockets', '2.11.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
-# devise for users authentication
+#devise for users authentication
 # devise for users authentication
 gem 'devise', '>= 3.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -21,7 +30,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'rails_12factor'
-gem 'awesome_print', require: 'ap'
+gem "awesome_print", require:"ap"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -48,10 +57,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'byebug'
-end
-
-group :test do
-  gem 'database_cleaner'
 end
 
 group :development do

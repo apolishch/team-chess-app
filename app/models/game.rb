@@ -19,12 +19,13 @@ class Game < ActiveRecord::Base
   end
 =======
        puts "did not find result "
-       " ------"
+       "---"
      else
-       puts "found results it is #{piece_result[0].image}"
-       piece_result[0].image
+      # puts "found results it is #{piece_result[0].image}"
+       piece_result[0].image.html_safe
      end
   end
+<<<<<<< 62fb6ac0887ded67fc9897c57aca7ff840530406
     # self.pieces.find_by(pieces.x_position && pieces.y_position !=nil)
   # #  if not equal to nil use html unicode representation
   #   if pieces.x_position && pieces.y_position !=nil
@@ -35,6 +36,8 @@ class Game < ActiveRecord::Base
 
 
 >>>>>>> added pieces to the board
+=======
+>>>>>>> added displayed unicode pieces to board
 
   def initialize_board
     # White Pieces

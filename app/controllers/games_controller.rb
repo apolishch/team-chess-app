@@ -26,14 +26,6 @@ class GamesController < ApplicationController
     return render_not_found if @game.blank?
   end
 
-  # def update
-  #   @piece = Piece.find(params[:id])
-  #   if @piece.piece.valid_move?.update_attributes(params[:x_position],[:y_position])
-  #   else
-  #     render text: 'Unauthorized', status: :unauthorized
-  #   end
-  # end
-
   def piece_at(x,y)
     self.pieces.where(pieces.x_position && pieces.y_position !=nil)
     # if not equal to nil use html unicode representation
@@ -43,9 +35,7 @@ class GamesController < ApplicationController
       return ""
   end
 
-  # piece_at = pieces.find { |piece| piece.x_position == i && piece.y_position == j }
   end
->>>>>>>  experimenting with adding pieces on chessboard
 
   private
 

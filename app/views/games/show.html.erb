@@ -5,6 +5,7 @@
       <% 7.downto(0) do |row| %>
         <tr class= "chessboard-col">
           <% 7.downto(0) do |col| %>
+<<<<<<< 76335ca58c7821466c86929877b6c70b750cc0ac
 <<<<<<< 3e89bf8d5efab79774c39b5602bb9b8648031245
               <td id="chess_piece"><%=@game.return_piece(col,row)%></td>
 =======
@@ -12,6 +13,9 @@
               <%=@game.pieces.image.htmlsafe%>
              </td>
 >>>>>>>  experimenting with adding pieces on chessboard
+=======
+              <td><%=@game.return_piece(row,col)%></td>
+>>>>>>> added pieces to the board
           <% end %><!--end column-->
         </tr>
       <% end %><!--end row-->

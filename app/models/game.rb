@@ -10,6 +10,7 @@ class Game < ActiveRecord::Base
   def return_piece(x,y)
      piece_result = Piece.where(game_id: id, x_position: x, y_position: y)
      if piece_result.empty?
+<<<<<<< 5fba8ff41298238ee963b55478afe6c516ebd504
 <<<<<<< 76335ca58c7821466c86929877b6c70b750cc0ac
        "&#32;".html_safe
      else
@@ -20,6 +21,9 @@ class Game < ActiveRecord::Base
 =======
        puts "did not find result "
        "---"
+=======
+       "&#32;".html_safe
+>>>>>>> experimenting with square height
      else
       # puts "found results it is #{piece_result[0].image}"
        piece_result[0].image.html_safe

@@ -35,11 +35,11 @@ class Piece < ActiveRecord::Base
     (x_position - x).zero? && (y_position - y).abs > 0
   end
 
-  def y_min(_x, y)
+  def y_min(x, y)
     [y_position, y].min
   end
 
-  def y_max(_x, y)
+  def y_max(x, y)
     [y_position, y].max
   end
   # method to check is the piece move is vertically obstructed

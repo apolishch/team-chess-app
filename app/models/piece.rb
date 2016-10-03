@@ -34,18 +34,24 @@ class Piece < ActiveRecord::Base
   def vertical?(x, y)
     (x_position - x).zero? && (y_position - y).abs > 0
   end
-  # method to check is the piece move is vertically obstructed
-  
-  def vertical_obstructed?(x, y)
-    
 
-    ( [y_position, y].min...[y_position, y].max ).each do |y|
-        self.game.pieces.where("x_position = ?", x).each do |piece|
-        if (piece.x_position == x && piece.y_position == y) && piece.id != self.id
+  def y_min(_x, y)
+    [y_position, y].min
+  end
+
+  def y_max(_x, y)
+    [y_position, y].max
+  end
+  # method to check is the piece move is vertically obstructed
+
+  def vertical_obstructed?(x, y)
+    (y_min(x, y)...y_max(x, y)).each do |y|
+      game.pieces.where('x_position = ? and y_position >= ? and y_position <= ?', x, y_min(x, y), y_max(x, y)).each do |piece|
+        if (piece.x_position == x && piece.y_position == y) && piece.id != id
           return true
         end
       end
     end
-    return false
+    false
   end
 end

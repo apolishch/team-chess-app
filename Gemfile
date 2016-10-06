@@ -8,6 +8,8 @@ group :test, :development do
   gem 'pry-byebug'
 end
 
+#jquery UI
+gem 'jquery-ui-rails'
 #Use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.3.5.1'
 #sprockets

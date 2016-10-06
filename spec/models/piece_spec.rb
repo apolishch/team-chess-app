@@ -13,5 +13,6 @@ RSpec.describe Piece, type: :model do
       expect(dummy_king.moved?(4, 0)).to eql(false)
       expect(dummy_king.moved?(4, 1)).to eql(true)
     end
+    #add a capture piece test here
   end
 end

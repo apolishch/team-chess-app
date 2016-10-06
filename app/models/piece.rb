@@ -34,4 +34,21 @@ class Piece < ActiveRecord::Base
   def vertical?(x, y)
     (x_position - x).zero? && (y_position - y).abs > 0
   end
+
+  # method tp determine if a piece is capturable
+  def capturable?(x, y)
+    Piece.where(:game_id == game.id, :x_position == x, :y_position == y, :is_captured == false).where(color: != color).present?
+  end
+
+  # method to take X and y for location, then validates the move. if it gets to a piece, capture it.
+  def move_to!(x, y)  #move must be valid. If valid, move the piece. If no opponent pieces there, end. If capturable piece there, capture it.
+    # if valid_move(x, y) == true then move the piece
+    
+     
+      #if a piece of different color exists in destination space, capture that piece (remove it from the board).
+    opponent_piece = Piece.where(:game_id == game.id, :x_position == x, :y_position == y)
+    if capturable?(x, y)
+      opponent_piece.update_attributes(:x_position == nil, :y_position == nil, :is_captured: true)
+    end
+  end
 end

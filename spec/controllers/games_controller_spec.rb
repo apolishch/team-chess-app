@@ -37,5 +37,21 @@ RSpec.describe GamesController, type: :controller do
       game = FactoryGirl.create(:game)
       expect(game.id).to eq(Game.last.id)
     end
+
+     #describe initalize board
+     #use the factory above
+    it 'should successfully place the pieces of the game on the board' do
+      game = FactoryGirl.create(:game)
+      expect(game.pieces.count).to eq 32
+    end
+
+     #describe return piece
+    it 'creates a white Rook' do
+      game = FactoryGirl.create(:game)
+      expect(game.pieces(color: 'white').find_by(x_position: 1, y_position: 0)).to be_a Knight
+    end
+
   end
+
+
 end

@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 
-#
-
+#added pry for debugging.
 group :test, :development do
   gem 'database_cleaner'
   gem 'pry-rails'
@@ -34,8 +33,6 @@ gem "awesome_print", require:"ap"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

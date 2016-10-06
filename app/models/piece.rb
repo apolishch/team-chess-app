@@ -52,3 +52,5 @@ class Piece < ActiveRecord::Base
     end
   end
 end
+
+#line

@@ -39,7 +39,6 @@ RSpec.describe GamesController, type: :controller do
     end
 
      #describe initalize board
-     #use the factory above
     it 'should successfully place the pieces of the game on the board' do
       game = FactoryGirl.create(:game)
       expect(game.pieces.count).to eq 32

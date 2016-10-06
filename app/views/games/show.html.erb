@@ -1,14 +1,1 @@
 <h1><%= @game.game_title %></h1>
-
-<div class="chessboard">
-  <table id="chessboard_table" >
-      <% 7.downto(0) do |row| %>
-        <tr class= "chessboard-col">
-          <% 7.downto(0) do |col| %>
-              <td id="chess_piece"><%=@game.return_piece(col,row)%></td>
-          <% end %><!--end column-->
-        </tr>
-      <% end %><!--end row-->
-  </table>
-</div>
-

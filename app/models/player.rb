@@ -3,4 +3,5 @@ class Player < ActiveRecord::Base
   has_many :games
 
   validates :name, presence: true
+  validates :user_id, uniqueness: true
 end

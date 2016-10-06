@@ -1,0 +1,5 @@
+<h1>Choose your name</h1>
+<%= simple_form_for @player do |f| %>
+  <%= f.input :name %>
+  <%= f.submit 'Create', class: 'btn btn-danger' %>
+<% end %>

@@ -13,6 +13,8 @@ RSpec.describe Piece, type: :model do
     @dummy_pawn_white3 = FactoryGirl.create  :piece, type: 'Pawn', x_position: 4, y_position: 4, game_id: @game.id
   end
 
+  
+
   describe ' vertical obstructions' do
     it 'should return false if the vertical move is not blocked moving from top to bottom of the board' do
       expect(@dummy_rook_top.vertical_obstructed?(0, 2)).to eql(false)

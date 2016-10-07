@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Game, type: :model do
   describe 'initilize_game method' do
     it '' do
-      game = Game.create(game_title: 'new_game')
+      game = FactoryGirl.create :game_with_initialize_board
       expect(Pawn.where(color: 'black').count).to eql 8
       expect(Pawn.where(color: 'white').count).to eql 8
       expect(Bishop.where(color: 'black').count).to eql 2

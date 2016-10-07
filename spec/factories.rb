@@ -27,6 +27,11 @@ FactoryGirl.define do
     end
     association :player
     turn 1
+
+    after(:build) { |game| game.class.skip_callback(:create, :after, :initialize_board) }
+    factory :game_with_initialize_board do
+      after(:create) { |game| game.send(:initialize_board) }
+    end
   end
 
   factory :piece do

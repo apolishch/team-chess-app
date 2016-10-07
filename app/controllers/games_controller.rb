@@ -26,6 +26,14 @@ class GamesController < ApplicationController
     return render_not_found if @game.blank?
   end
 
+  def update
+    @piece = Piece.find(params[:id])
+    if @piece.piece.valid_move?.update_attributes(params[:x_position],[:y_position])
+    else
+      render text: 'Unauthorized', status: :unauthorized
+    end
+  end
+
   private
 
   def game_params

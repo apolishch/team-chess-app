@@ -1,10 +1,36 @@
 
+<!--only one piece is draggable-->
+
 <script>
-alert('hi');
+  $( function() {
+    $( ".chess_piece span" ).draggable();
+    $( ".chess_piece" ).droppable({
+      drop: function( event, ui ){
+
+        var droppedItem = $(ui.draggable);
+        $(this).html(droppedItem.html());  // convert js object to a string //empty () so it knows to call a function
+        console.log(this)
+      // this refers to the area where the item is being dropped
+
+    //     $.ajax({
+    //       type: 'PUT',
+    //       url: ui.draggable.data('update-url'),
+    //       dataType: 'json',
+             data:
+    //       // data: droppedItem
+    //       // data is the id of the element and the position of the receiving box
+    //     })
+    //   }
+      }
+     });
+  } );
+
 </script>
 
 </br>
-
+<!--to do -->
+<!--generate a piece path if there is a piece in td - piece_ path-->
+<!--extract the data for ajax chess_piece.data(x_position)-->
 
 <h1><%= @game.game_title %></h1>
 
@@ -13,7 +39,9 @@ alert('hi');
       <% 7.downto(0) do |row| %>
         <tr class= "chessboard-col">
           <% 7.downto(0) do |col| %>
-              <td id="chess_piece"><%=@game.return_piece(col,row)%></td>
+              <td class="chess_piece" data-x_position="<%= row %>" data-y_position="<%= col %>">
+                <span><%=@game.return_piece(col,row)%></span>
+              </td>
           <% end %><!--end column-->
         </tr>
       <% end %><!--end row-->

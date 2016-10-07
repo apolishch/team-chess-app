@@ -10,38 +10,13 @@ class Game < ActiveRecord::Base
   def return_piece(x,y)
      piece_result = Piece.where(game_id: id, x_position: x, y_position: y)
      if piece_result.empty?
-<<<<<<< 5fba8ff41298238ee963b55478afe6c516ebd504
-<<<<<<< 76335ca58c7821466c86929877b6c70b750cc0ac
        "&#32;".html_safe
      else
       # puts "found results it is #{piece_result[0].image}"
        piece_result[0].image.html_safe
      end
   end
-=======
-       puts "did not find result "
-       "---"
-=======
-       "&#32;".html_safe
->>>>>>> experimenting with square height
-     else
-      # puts "found results it is #{piece_result[0].image}"
-       piece_result[0].image.html_safe
-     end
-  end
-<<<<<<< 62fb6ac0887ded67fc9897c57aca7ff840530406
-    # self.pieces.find_by(pieces.x_position && pieces.y_position !=nil)
-  # #  if not equal to nil use html unicode representation
-  #   if pieces.x_position && pieces.y_position !=nil
-  #       return piece.image.htmlsafe
-  #   else
-  #     return " "
-  #   end
 
-
->>>>>>> added pieces to the board
-=======
->>>>>>> added displayed unicode pieces to board
 
   def initialize_board
     # White Pieces

@@ -75,4 +75,9 @@ def horizontal_obstructed?(x, y)
     false
 end
 
+def diagonal_obstructed?(x, y)
+
+end
+
+
 end

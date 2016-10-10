@@ -25,8 +25,6 @@ class GamesController < ApplicationController
 
     return render_not_found if @game.blank?
   end
-
-
   private
 
   def game_params

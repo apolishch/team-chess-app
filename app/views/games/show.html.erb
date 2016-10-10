@@ -1,5 +1,5 @@
 
-<!--only one piece is draggable-->
+
 
 <script>
   $( function() {
@@ -9,7 +9,17 @@
           var dropped = ui.draggable;
           var droppedOn = $(this);
           $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
-          //detach() is like remove(), but keeps the stored data and events associated with the matched elements.
+          var chesspiece = chess_piece.data(x)
+
+      $.ajax({
+          type: 'PUT',
+          url: '<%= piece_path(@game)%>'// <!--generate a piece path if there is a piece in the td -->
+          dataType: 'json',
+          data: {
+            chess_piece.data(x_position)
+            chess_piece.data(y_position)
+          }
+        })
 
       }
     });

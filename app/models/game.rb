@@ -12,7 +12,6 @@ class Game < ActiveRecord::Base
      if piece_result.empty?
        "&#32;".html_safe
      else
-      # puts "found results it is #{piece_result[0].image}"
        piece_result[0].image.html_safe
      end
   end

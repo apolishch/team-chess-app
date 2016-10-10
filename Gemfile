@@ -7,8 +7,9 @@ gem 'sprockets', '2.11.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # devise for users authentication
-# devise for users authentication
 gem 'devise', '>= 3.2.4'
+# omni authentication for facebook
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record

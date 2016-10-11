@@ -1,6 +1,12 @@
 class Piece < ActiveRecord::Base
   belongs_to :game
 
+
+  def image
+    ' '
+  end
+
+
   # method to check if the move is inside the board limits
 
   def inside_limits?(x, y)

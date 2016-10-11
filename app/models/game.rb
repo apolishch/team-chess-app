@@ -39,6 +39,7 @@ class Game < ActiveRecord::Base
 
     Queen.create(game_id: id, x_position: 3, y_position: 0, color: 'white', image: '&#9813;')
     King.create(game_id: id, x_position: 4, y_position: 0, color: 'white', image:'&#9812;')
+    binding.pry
 
     # Black Pieces
     (0..7).each do |i|

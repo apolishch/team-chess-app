@@ -7,7 +7,7 @@ class King < Piece
 
     (horizontal?(x, y) || vertical?(x, y) || diagonal?(x, y)) && (x_diff.abs <= 1 && y_diff.abs <= 1) && super
   end
-end
+
 
 
 
@@ -18,3 +18,4 @@ end
       "&#9812;"
     end
   end
+end

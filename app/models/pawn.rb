@@ -4,7 +4,7 @@ class Pawn < Piece
     if self.color == "black"
       "&#9823;"
     else
-      "&#9820;"
+      "&#9817;"
     end
   end
 

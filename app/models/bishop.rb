@@ -4,7 +4,7 @@ class Bishop < Piece
   def valid_move?(x, y)
     diagonal?(x, y) && super
   end
-end
+
 
   def image
     if self.color == "black"
@@ -13,3 +13,5 @@ end
       "&#9815;"
     end
   end
+
+end

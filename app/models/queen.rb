@@ -16,6 +16,4 @@ class Queen < Piece
       "&#9813;"
     end
   end
-
-
 end

@@ -16,11 +16,11 @@ RSpec.describe Piece, type: :model do
 
     #add a capture piece test here
     it 'should capture an opponents piece after a move' do
-      dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 3, y_position: 0, is_captured: false, game_id: 0)
-      dummy_pawn = Piece.create(type: 'Pawn', color: 'black', image: '', x_position: 4, y_position: 0, is_captured: false, game_id: 0)
-      dummy_queen.move_to!(4, 0)
-      expect(dummy_pawn.exists?).to eql(false)
+      dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 3, y_position: 2, is_captured: false, game_id: 0)
+      dummy_pawn = Piece.create(type: 'Pawn', color: 'black', image: '', x_position: 4, y_position: 2, is_captured: false, game_id: 0)
+      dummy_queen.move_to!(4, 2)
+      expect(dummy_pawn.is_captured).to eql(true)
     end
-    # test that move_to! updates SQL
+    # test that move_to! updates database
   end
 end

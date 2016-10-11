@@ -9,11 +9,13 @@ RSpec.describe Piece, type: :model do
     @dummy_pawn_black = FactoryGirl.create  :piece, type: 'Pawn', x_position: 7, y_position: 4, game_id: @game.id
     @dummy_rook_left = FactoryGirl.create :piece, type: 'Rook', x_position: 0, y_position: 4, game_id: @game.id
     @dummy_rook_right = FactoryGirl.create :piece, type: 'Rook', x_position: 7, y_position: 4, game_id: @game.id
+    @dummy_bishop_bottom_left = FactoryGirl.create :piece, type: 'Bishop', x_position: 1, y_position: 7, game_id: @game.id
+    @dummy_bishop_top_left = FactoryGirl.create :piece, type: 'Bishop', x_position: 1, y_position: 1, game_id: @game.id
+    @dummy_bishop_bottom_right = FactoryGirl.create :piece, type: 'Bishop', x_position: 7, y_position: 7, game_id: @game.id
+    @dummy_bishop_top_right = FactoryGirl.create :piece, type: 'Bishop', x_position: 7, y_position: 1, game_id: @game.id
     @dummy_pawn_white2 = FactoryGirl.create  :piece, type: 'Pawn', x_position: 2, y_position: 4, game_id: @game.id
     @dummy_pawn_white3 = FactoryGirl.create  :piece, type: 'Pawn', x_position: 4, y_position: 4, game_id: @game.id
   end
-
-  
 
   describe ' vertical obstructions' do
     it 'should return false if the vertical move is not blocked moving from top to bottom of the board' do
@@ -47,7 +49,41 @@ RSpec.describe Piece, type: :model do
     end
 
     it 'should return true if the horizontal move is blocked moving from right to left of the board' do
-      expect(@dummy_rook_right.horizontal_obstructed?(2, 4)).to eql(true)
+      expect(@dummy_rook_right.horizontal_obstructed?(3, 4)).to eql(true)
+    end
+  end
+
+  describe 'diagonal obstructions' do
+    it 'should return false if the diagonal move is not blocked moving from bottom to top and from left to right' do
+      expect(@dummy_bishop_bottom_left.diagonal_obstructed?(3, 5)).to eql(false)
+    end
+
+    it 'should return true if the diagonal move is blocked moving from bottom to top and from left to right' do
+      expect(@dummy_bishop_bottom_left.diagonal_obstructed?(5, 3)).to eql(true)
+    end
+
+    it 'should return false if the diagonal move is not blocked moving from top to bottom and from left to right' do
+      expect(@dummy_bishop_top_left.diagonal_obstructed?(3, 3)).to eql(false)
+    end
+
+    it 'should return true if the diagonal move is blocked moving from top to bottom and from left to right' do
+      expect(@dummy_bishop_top_left.diagonal_obstructed?(5, 5)).to eql(true)
+    end
+
+    it 'should return false if the diagonal move is not blocked moving from bottom to top and from right to left' do
+      expect(@dummy_bishop_bottom_right.diagonal_obstructed?(5, 5)).to eql(false)
+    end
+
+    it 'should return true if the diagonal move is blocked moving from top to bottom and from left to right' do
+      expect(@dummy_bishop_bottom_right.diagonal_obstructed?(2, 2)).to eql(true)
+    end
+
+    it 'should return false if the diagonal move is not blocked moving from top to bottom and from right to left' do
+      expect(@dummy_bishop_top_right.diagonal_obstructed?(5, 3)).to eql(false)
+    end
+
+    it 'should return true if the diagonal move is blocked moving from top to bottom and from right to left' do
+      expect(@dummy_bishop_top_right.diagonal_obstructed?(3, 5)).to eql(true)
     end
   end
 end

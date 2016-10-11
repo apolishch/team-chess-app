@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'byebug'
   gem 'simplecov', :require => false
+  gem 'codecov', :require => false, :group => :test
 end
 
 group :development do

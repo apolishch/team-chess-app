@@ -11,9 +11,9 @@ class Queen < Piece
 
   def image
     if self.color == "black"
-      " "
+      "&#9818;"
     else
-      " "
+      "&#9813;"
     end
   end
 

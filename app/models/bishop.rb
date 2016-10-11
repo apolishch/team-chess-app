@@ -5,3 +5,11 @@ class Bishop < Piece
     diagonal?(x, y) && super
   end
 end
+
+  def image
+    if self.color == "black"
+      "&#9821;"
+    else
+      "&#9815;"
+    end
+  end

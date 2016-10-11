@@ -5,3 +5,11 @@ class Rook < Piece
     (vertical?(x, y) || horizontal?(x, y)) && super
   end
 end
+
+  def image
+    if self.color == "black"
+      "&#9820;"
+    else
+      "&#9814"
+    end
+  end

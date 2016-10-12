@@ -243,6 +243,7 @@ DEPENDENCIES
   figaro (>= 1.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  omniauth
   omniauth-facebook
   pg
   rails (= 4.2.4)

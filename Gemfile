@@ -11,6 +11,8 @@ gem 'sprockets', '2.11.0'
 gem 'sass-rails'
 # devise for users authentication
 gem 'devise', '>= 3.2.4'
+# omni op
+gem 'omniauth'
 # omni authentication for facebook
 gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

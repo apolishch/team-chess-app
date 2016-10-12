@@ -19,8 +19,13 @@ RSpec.describe Piece, type: :model do
       dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 3, y_position: 2, is_captured: false, game_id: 0)
       dummy_pawn = Piece.create(type: 'Pawn', color: 'black', image: '', x_position: 4, y_position: 2, is_captured: false, game_id: 0)
       dummy_queen.move_to!(4, 2)
-      expect(dummy_pawn.is_captured).to eql(true)
+      expect(dummy_pawn.reload.x_position).to eql(nil)
     end
     # test that move_to! updates database
+    it 'should return invalid move' do
+      dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 4, y_position: 2, is_captured: false, game_id: 0)
+      allow(dummy_queen).to receive(:is_obstructed?).and_return(true)
+      expect(dummy_queen.move_to!(5, 2)).to eql(false)
+    end
   end
 end

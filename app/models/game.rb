@@ -12,9 +12,11 @@ class Game < ActiveRecord::Base
      if piece_result.empty?
        "&#32;".html_safe
      else
+      # puts "found results it is #{piece_result[0].image}"
        piece_result[0].image.html_safe
      end
   end
+
 
   def initialize_board
     # White Pieces
@@ -24,7 +26,6 @@ class Game < ActiveRecord::Base
         x_position: i,
         y_position: 1,
         color: 'white',
-        image: '&#9817;',
       )
     end
 
@@ -48,20 +49,19 @@ class Game < ActiveRecord::Base
         x_position: i,
         y_position: 6,
         color: 'black',
-        image: '&#9823;',
       )
     end
 
-    Rook.create(game_id: id, x_position: 0, y_position: 7, color: 'black', image:'&#9820;')
-    Rook.create(game_id: id, x_position: 7, y_position: 7, color: 'black', image:'&#9820;')
+    Rook.create(game_id: id, x_position: 0, y_position: 7, color: 'black')
+    Rook.create(game_id: id, x_position: 7, y_position: 7, color: 'black')
 
-    Knight.create(game_id: id, x_position: 1, y_position: 7, color: 'black', image:'&#9822;')
-    Knight.create(game_id: id, x_position: 6, y_position: 7, color: 'black', image:'&#9822;')
+    Knight.create(game_id: id, x_position: 1, y_position: 7, color: 'black')
+    Knight.create(game_id: id, x_position: 6, y_position: 7, color: 'black')
 
-    Bishop.create(game_id: id, x_position: 2, y_position: 7, color: 'black', image: '&#9821;')
-    Bishop.create(game_id: id, x_position: 5, y_position: 7, color: 'black', image: '&#9821;')
+    Bishop.create(game_id: id, x_position: 2, y_position: 7, color: 'black')
+    Bishop.create(game_id: id, x_position: 5, y_position: 7, color: 'black')
 
-    Queen.create(game_id: id, x_position: 3, y_position: 7, color: 'black', image:'&#9818;')
-    King.create(game_id: id, x_position: 4, y_position: 7, color: 'black', image: '&#9818;')
+    Queen.create(game_id: id, x_position: 3, y_position: 7, color: 'black')
+    King.create(game_id: id, x_position: 4, y_position: 7, color: 'black')
   end
 end

@@ -1,4 +1,15 @@
 class Pawn < Piece
+
+  def image
+    if self.color == "black"
+      "&#9823;"
+    else
+      "&#9817;"
+    end
+  end
+
+
+
   # it can only move vertically one square
 
   def valid_move?(x, y)

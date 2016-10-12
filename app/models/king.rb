@@ -7,4 +7,15 @@ class King < Piece
 
     (horizontal?(x, y) || vertical?(x, y) || diagonal?(x, y)) && (x_diff.abs <= 1 && y_diff.abs <= 1) && super
   end
+
+
+
+
+  def image
+    if self.color == "black"
+      "&#9818;"
+    else
+      "&#9812;"
+    end
+  end
 end

@@ -4,4 +4,12 @@ class Rook < Piece
   def valid_move?(x, y)
     (vertical?(x, y) || horizontal?(x, y)) && super
   end
+
+  def image
+    if self.color == "black"
+      "&#9820;"
+    else
+      "&#9814;"
+    end
+  end
 end

@@ -55,15 +55,15 @@ class Game < ActiveRecord::Base
   end
 
   def is_game_in_check?(opponents_color)
-    pieces = Piece.where(color: opponents_color).where(game_id: id).where.not(is_captured: true).all
+    opponents_pieces = Piece.where(color: opponents_color).where(game_id: id).where.not(is_captured: true).all
     king = Piece.where(type: 'King').where(game_id: id).where.not(color: opponents_color).first
     in_check = false
 
-    pieces.each do |piece|
-      if piece.type == 'Pawn'
-        in_check = piece.valid_pawn_capture?(king.x_position, king.y_position)
+    opponents_pieces.each do |opponents_piece|
+      if opponents_piece.type == 'Pawn'
+        in_check = opponents_piece.valid_pawn_capture?(king.x_position, king.y_position)
       else
-        in_check = piece.valid_move?(king.x_position, king.y_position)
+        in_check = opponents_piece.valid_move?(king.x_position, king.y_position)
       end
 
       break if in_check

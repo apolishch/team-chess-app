@@ -14,7 +14,7 @@ class Pawn < Piece
         return true if y == y_position - 1
       end
     end
-    false
+    return false
   end
 
   def advancing?(y)

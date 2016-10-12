@@ -42,7 +42,7 @@ RSpec.describe Game, type: :model do
       king = FactoryGirl.create(:king, game_id: game.id, x_position: 4, y_position: 4, color: 'black')
       pawn = FactoryGirl.create(:pawn, game_id: game.id, x_position: 4, y_position: 5, color: 'white')
       opponets_color = pawn.color
-      expect(pawn.valid_move?(king.x_position, king.y_position)).to eql true 
+      expect(pawn.valid_move?(king.x_position, king.y_position)).to eql true
       expect(game.is_game_in_check?(opponets_color)).to eql false
     end
 
@@ -54,6 +54,5 @@ RSpec.describe Game, type: :model do
       expect(pawn.valid_move?(king.x_position, king.y_position)).to eql false
       expect(game.is_game_in_check?(opponets_color)).to eql true
     end
-
   end
 end

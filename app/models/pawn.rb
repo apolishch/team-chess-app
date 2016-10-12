@@ -7,14 +7,14 @@ class Pawn < Piece
   # method to define if the pawn movement is of advance
 
   def valid_pawn_capture?(x, y)
-    if (x == self.x_position + 1 || x == self.x_position - 1) 
-      if self.color == 'black'
-        return true if y == self.y_position + 1
+    if x == x_position + 1 || x == x_position - 1
+      if color == 'black'
+        return true if y == y_position + 1
       else
-        return true if y == self.y_position - 1
+        return true if y == y_position - 1
       end
     end
-      return false
+    false
   end
 
   def advancing?(y)

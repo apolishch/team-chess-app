@@ -5,7 +5,7 @@ DatabaseCleaner.clean
 
 FactoryGirl.define do
   factory :user do
-    sequence :email do |n|
+    sequence :email do |_n|
       'testEmail#{n}@gmail.com'
     end
     password 'aPassword'
@@ -13,14 +13,14 @@ FactoryGirl.define do
   end
 
   factory :player do
-    sequence :name do |n|
+    sequence :name do |_n|
       'Foo#{n}'
     end
     association :user
   end
 
   factory :game do
-    sequence :game_title do |n|
+    sequence :game_title do |_n|
       'Foo#{n}'
     end
     association :player
@@ -32,7 +32,6 @@ FactoryGirl.define do
       after(:create) { |game| game.send(:initialize_board) }
     end
   end
-
 
   factory :piece do
     association :game

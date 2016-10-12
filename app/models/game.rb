@@ -55,8 +55,8 @@ class Game < ActiveRecord::Base
   end
 
   def is_game_in_check?(opponents_color)
-    pieces = Piece.where(color: opponents_color).where(game_id: self.id).where.not(is_captured: true).all
-    king = Piece.where(type: 'King').where(game_id: self.id).where.not(color: opponents_color).first
+    pieces = Piece.where(color: opponents_color).where(game_id: id).where.not(is_captured: true).all
+    king = Piece.where(type: 'King').where(game_id: id).where.not(color: opponents_color).first
     in_check = false
 
     pieces.each do |piece|
@@ -69,6 +69,6 @@ class Game < ActiveRecord::Base
       break if in_check
     end
 
-    return in_check
+    in_check
   end
 end

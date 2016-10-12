@@ -6,6 +6,10 @@ class Pawn < Piece
   end
   # method to define if the pawn movement is of advance
 
+  def valid_pawn_capture?(x, y)
+    return true
+  end
+
   def advancing?(y)
     if color == 'black'
       return true if y_position < y

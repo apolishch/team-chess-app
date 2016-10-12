@@ -1,13 +1,11 @@
 require 'database_cleaner'
 
 DatabaseCleaner.strategy = :truncation
-
-# then, whenever you need to clean the DB
 DatabaseCleaner.clean
 
 FactoryGirl.define do
   factory :user do
-    sequence :email do |_n|
+    sequence :email do |n|
       'testEmail#{n}@gmail.com'
     end
     password 'aPassword'
@@ -15,19 +13,26 @@ FactoryGirl.define do
   end
 
   factory :player do
-    sequence :name do |_n|
+    sequence :name do |n|
       'Foo#{n}'
     end
     association :user
   end
 
   factory :game do
-    sequence :game_title do |_n|
+    sequence :game_title do |n|
       'Foo#{n}'
     end
     association :player
     turn 1
+
+    after(:build) { |game| game.class.skip_callback(:create, :after, :initialize_board) }
+
+    factory :game_with_initialize do
+      after(:create) { |game| game.send(:initialize_board) }
+    end
   end
+
 
   factory :piece do
     association :game

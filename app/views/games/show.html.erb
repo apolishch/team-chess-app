@@ -3,23 +3,28 @@
 
 <script>
   $( function() {
-    $( ".chess_piece span" ).draggable();
-    $('.chess_piece').droppable({
+    $( ".chessPiece span" ).draggable();
+    $('.chessPiece').droppable({
       drop: function(ev, ui) {
         alert(ui.x_position);
           var dropped = ui.draggable;
           var droppedOn = $(this);
           $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
-          console.log(droppedOn)
+          // console.log(droppedOn)    //jQuery.fn.init[1]
+          var y = droppedOn.data('y_position')
+          var x = droppedOn.data('x_position')
+
+          console.log(y)
+          console.log(x)
 
 
       // $.ajax({
       //     type: 'PUT',
-      //       url: <%= piece_path(@game)%>
+      //     url:
       //     dataType: 'json',
       //     data: {
-      //       chess_piece.data(x_position)
-      //       chess_piece.data(y_position)
+      //       droppedOn.data('y_position')
+      //       droppedOn.data('x_position')
       //     }
       //   })
 
@@ -38,11 +43,11 @@
 <h1><%= @game.game_title %></h1>
 
 <div class="chessboard">
-  <table id="chessboard_table" >
+  <table id="chessboardTable" >
       <% 7.downto(0) do |row| %>
-        <tr class= "chessboard-col">
+        <tr class= "chessboardCol">
           <% 7.downto(0) do |col| %>
-              <td class="chess_piece" data-x_position="<%= row %>" data-y_position="<%= col %>">
+              <td class="chessPiece" data-x_position="<%= row %>" data-y_position="<%= col %>">
                 <span><%=@game.return_piece(col,row)%></span>
               </td>
           <% end %><!--end column-->

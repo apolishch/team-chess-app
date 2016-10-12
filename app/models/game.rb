@@ -29,18 +29,17 @@ class Game < ActiveRecord::Base
       )
     end
 
-    Rook.create(game_id: id, x_position: 0, y_position: 0, color: 'white', image: '	&#9814;')
-    Rook.create(game_id: id, x_position: 7, y_position: 0, color: 'white', image: '	&#9814;')
+    Rook.create(game_id: id, x_position: 0, y_position: 0, color: 'white')
+    Rook.create(game_id: id, x_position: 7, y_position: 0, color: 'white')
 
-    Knight.create(game_id: id, x_position: 1, y_position: 0, color: 'white', image: '&#9816;')
-    Knight.create(game_id: id, x_position: 6, y_position: 0, color: 'white', image: '&#9816;')
+    Knight.create(game_id: id, x_position: 1, y_position: 0, color: 'white')
+    Knight.create(game_id: id, x_position: 6, y_position: 0, color: 'white')
 
-    Bishop.create(game_id: id, x_position: 2, y_position: 0, color: 'white', image:'&#9815;')
-    Bishop.create(game_id: id, x_position: 5, y_position: 0, color: 'white', image:'&#9815;')
+    Bishop.create(game_id: id, x_position: 2, y_position: 0, color: 'white')
+    Bishop.create(game_id: id, x_position: 5, y_position: 0, color: 'white')
 
-    Queen.create(game_id: id, x_position: 3, y_position: 0, color: 'white', image: '&#9813;')
-    King.create(game_id: id, x_position: 4, y_position: 0, color: 'white', image:'&#9812;')
-    binding.pry
+    Queen.create(game_id: id, x_position: 3, y_position: 0, color: 'white')
+    King.create(game_id: id, x_position: 4, y_position: 0, color: 'white')
 
     # Black Pieces
     (0..7).each do |i|

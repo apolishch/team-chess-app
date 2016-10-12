@@ -34,4 +34,8 @@ class Piece < ActiveRecord::Base
   def vertical?(x, y)
     (x_position - x).zero? && (y_position - y).abs > 0
   end
+
+  def first_move
+    first_move = true
+  end
 end

@@ -12,30 +12,30 @@ class Game < ActiveRecord::Base
       Pawn.create(
         game_id: id,
         x_position: i,
-        y_position: 1,
+        y_position: 6,
         color: 'white',
         is_captured: false
       )
     end
 
-    Rook.create(game_id: id, x_position: 0, y_position: 0, color: 'white', is_captured: false)
-    Rook.create(game_id: id, x_position: 7, y_position: 0, color: 'white', is_captured: false)
+    Rook.create(game_id: id, x_position: 0, y_position: 7, color: 'white', is_captured: false)
+    Rook.create(game_id: id, x_position: 7, y_position: 7, color: 'white', is_captured: false)
 
-    Knight.create(game_id: id, x_position: 1, y_position: 0, color: 'white', is_captured: false)
-    Knight.create(game_id: id, x_position: 6, y_position: 0, color: 'white', is_captured: false)
+    Knight.create(game_id: id, x_position: 1, y_position: 7, color: 'white', is_captured: false)
+    Knight.create(game_id: id, x_position: 6, y_position: 7, color: 'white', is_captured: false)
 
-    Bishop.create(game_id: id, x_position: 2, y_position: 0, color: 'white', is_captured: false)
-    Bishop.create(game_id: id, x_position: 5, y_position: 0, color: 'white', is_captured: false)
+    Bishop.create(game_id: id, x_position: 2, y_position: 7, color: 'white', is_captured: false)
+    Bishop.create(game_id: id, x_position: 5, y_position: 7, color: 'white', is_captured: false)
 
-    Queen.create(game_id: id, x_position: 3, y_position: 0, color: 'white', is_captured: false)
-    King.create(game_id: id, x_position: 4, y_position: 0, color: 'white', is_captured: false)
+    Queen.create(game_id: id, x_position: 3, y_position: 7, color: 'white', is_captured: false)
+    King.create(game_id: id, x_position: 4, y_position: 7, color: 'white', is_captured: false)
 
     # Black Pieces
     (0..7).each do |i|
       Pawn.create(
         game_id: id,
         x_position: i,
-        y_position: 6,
+        y_position: 1,
         color: 'black',
         is_captured: false
       )

@@ -11,11 +11,16 @@
           var droppedOn = $(this);
           $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
           // console.log(droppedOn)    //jQuery.fn.init[1]
-          var y = droppedOn.data('y_position')
+          var y = droppedOn.data('y_position')   //is .data calling the method in the html?
           var x = droppedOn.data('x_position')
+          var myobj = $('.chess_pieces')
+
 
           console.log(y)
           console.log(x)
+          console.log(myobj)
+          console.log(droppedOn)
+
 
 
       // $.ajax({

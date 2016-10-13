@@ -14,14 +14,13 @@ RSpec.describe Piece, type: :model do
       expect(dummy_king.moved?(4, 1)).to eql(true)
     end
 
-    #add a capture piece test here
-    it 'should capture an opponents piece after a move' do
+    it 'should remove an opponents piece when it is captured' do
       dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 3, y_position: 2, is_captured: false, game_id: 0)
       dummy_pawn = Piece.create(type: 'Pawn', color: 'black', image: '', x_position: 4, y_position: 2, is_captured: false, game_id: 0)
       dummy_queen.move_to!(4, 2)
       expect(dummy_pawn.reload.x_position).to eql(nil)
     end
-    # test that move_to! updates database
+   
     it 'should return invalid move' do
       dummy_queen = Piece.create(type: 'Queen', color: 'white', image: '', x_position: 4, y_position: 2, is_captured: false, game_id: 0)
       allow(dummy_queen).to receive(:is_obstructed?).and_return(true)

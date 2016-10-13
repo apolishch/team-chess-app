@@ -35,13 +35,13 @@ class Piece < ActiveRecord::Base
     (x_position - x).zero? && (y_position - y).abs > 0
   end
 
-  # method to determine if a piece is capturable, to be used with the move_to! method
+  # method to determine if a piece is capturable
   def capturable?(x, y)
     @opponent_piece = Piece.where(:game_id => game_id, :x_position => x, :y_position => y, :is_captured => false).where.not(color: color).first
     @opponent_piece.present?
   end
 
-  # method to determine if a player piece is obstructed, to be used with the move_to! method. Possibly integrate this into valid_move?
+  # PLACEHOLDER method to determine if a player piece is obstructed to use with the move_to! method
   def is_obstructed?
     return false 
   end
@@ -49,7 +49,6 @@ class Piece < ActiveRecord::Base
   # method to take X and y for location, then validates the move. if it gets to a piece, capture it.
   def move_to!(x, y)
     if valid_move?(x, y) == true && is_obstructed? == false      
-      # if a piece of different color exists in destination space, capture that piece (remove it from the board).
       if capturable?(x, y)
         @opponent_piece.update_attributes(:x_position => nil, :y_position => nil, :is_captured => true)
       end

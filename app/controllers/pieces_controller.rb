@@ -2,12 +2,11 @@ class PiecesController < ApplicationController
 
   def update
     @piece = Piece.find(params[:id])
-    if @piece.piece.valid_move?.update_attributes(params[:x_position],[:y_position])
+    if @piece.valid_move?(params[:x_position],[:y_position]).update_attributes(x_position: 5, y_position: 1)
       render json: piece
     else
       render text: 'Unauthorized', status: :unauthorized
     end
   end
-
-
 end
+

@@ -23,15 +23,15 @@
 
 
 
-      // $.ajax({
-      //     type: 'PUT',
-      //     url:
-      //     dataType: 'json',
-      //     data: {
-      //       droppedOn.data('y_position')
-      //       droppedOn.data('x_position')
-      //     }
-      //   })
+      $.ajax({
+          type: 'PUT',
+          url: ui.draggable.data("url"),  //name pass in as a argument
+          dataType: 'json',
+          data: {
+           x_position: droppedOn.data('y_position'),
+           y_position:  droppedOn.data('x_position'),
+          }
+        })
 
       }
     });
@@ -53,7 +53,9 @@
         <tr class= "chessboardCol">
           <% 7.downto(0) do |col| %>
               <td class="chessPiece" data-x_position="<%= row %>" data-y_position="<%= col %>">
-                <span><%=@game.return_piece(col,row)%></span>
+                <% if piece = @game.return_piece(col,row)%>
+                  <span data-url="<%= piece_path(piece) %>"><%=piece_symbol(piece)%></span>
+                <% end %>
               </td>
           <% end %><!--end column-->
         </tr>

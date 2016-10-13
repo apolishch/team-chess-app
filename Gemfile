@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 
-#figaro for facebook authentication
-gem "figaro", ">= 1.0.0"
 # Use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.3.5.1'
 # sprockets

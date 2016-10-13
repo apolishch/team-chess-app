@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Bishop, type: :model do
   before(:each) do
-    @dummy_bishop = Piece.create(type: 'Bishop', color: 'black', image: '', x_position: 2, y_position: 0, is_captured: false, game_id: 0)
+    @dummy_bishop = Piece.create(type: 'Bishop', color: 'black', x_position: 2, y_position: 0, is_captured: false, game_id: 0)
   end
 
   describe 'bishop valid moves' do

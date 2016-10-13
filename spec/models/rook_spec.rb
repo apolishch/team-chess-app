@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Rook, type: :model do
   before(:each) do
-    @dummy_rook = Piece.create(type: 'Rook', color: 'black', image: '', x_position: 0, y_position: 0, is_captured: false, game_id: 0)
+    @dummy_rook = Piece.create(type: 'Rook', color: 'black', x_position: 0, y_position: 0, is_captured: false, game_id: 0)
   end
 
   describe 'king valid movement' do

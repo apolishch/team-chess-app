@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Pawn, type: :model do
   # to be described behaviour on capturing pieces as the pawn can move diagonally one square to capture
   before(:each) do
-    @dummy_pawn_white = Piece.create(type: 'Pawn', color: 'white', image: '', x_position: 1, y_position: 4, is_captured: false, game_id: 0)
-    @dummy_pawn_black = Piece.create(type: 'Pawn', color: 'black', image: '', x_position: 1, y_position: 3, is_captured: false, game_id: 0)
-    @dummy_pawn_white_starting = Piece.create(type: 'Pawn', color: 'white', image: '', x_position: 1, y_position: 6, is_captured: false, game_id: 0)
+    @dummy_pawn_white = Piece.create(type: 'Pawn', color: 'white', x_position: 1, y_position: 4, is_captured: false, game_id: 0)
+    @dummy_pawn_black = Piece.create(type: 'Pawn', color: 'black', x_position: 1, y_position: 3, is_captured: false, game_id: 0)
+    @dummy_pawn_white_starting = Piece.create(type: 'Pawn', color: 'white', x_position: 1, y_position: 6, is_captured: false, game_id: 0)
   end
 
   describe 'pawn valid_moves' do

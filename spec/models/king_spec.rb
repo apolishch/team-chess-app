@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe King, type: :model do
   before(:each) do
-    @dummy_king = Piece.create(type: 'King', color: 'black', image: '', x_position: 4, y_position: 0, is_captured: false, game_id: 0)
+    @dummy_king = Piece.create(type: 'King', color: 'black', x_position: 4, y_position: 0, is_captured: false, game_id: 0)
   end
 
   describe 'king valid moves' do

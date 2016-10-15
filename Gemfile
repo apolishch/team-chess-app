@@ -22,8 +22,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'simple_form'
 gem 'rails_12factor'
 
-
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -49,8 +47,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'byebug'
-  gem 'simplecov', :require => false
-  gem 'codecov', :require => false, :group => :test
+  gem 'simplecov', require: false
+  gem 'codecov', require: false, group: :test
 end
 
 group :test do
@@ -60,8 +58,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem "awesome_print", require:"ap"
-
+  gem 'awesome_print', require: 'ap'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

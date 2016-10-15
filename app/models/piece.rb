@@ -34,4 +34,15 @@ class Piece < ActiveRecord::Base
   def vertical?(x, y)
     (x_position - x).zero? && (y_position - y).abs > 0
   end
+
+  # calculates how many squares are covered in a piece move
+  def squares_moved(x, y)
+    if horizontal?(x, y) || diagonal?(x, y)
+      (x_position - x).abs
+    elsif vertical?(x, y)
+      (y_position - y).abs
+    else
+      (x_position - x).abs + (y_position - y).abs
+    end
+  end
 end
